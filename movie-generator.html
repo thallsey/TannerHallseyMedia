@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Movie Night Generator 🎬</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #0f0f0f, #1c1c1c);
+      font-family: 'Arial', sans-serif;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      font-size: 2.5rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #ccc;
+    }
+
+    .movie-box {
+      background-color: #222;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 600px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+      margin-top: 20px;
+    }
+
+    button {
+      background-color: #e50914;
+      color: #fff;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 30px;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #b40610;
+    }
+
+    a {
+      color: #90caf9;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🍿 Movie Night Generator</h1>
+  <p>Click the button to get a legendary movie to watch!</p>
+
+  <button onclick="recommendMovie()">Recommend Me a Movie</button>
+
+  <div id="movieDisplay" class="movie-box" style="display:none;"></div>
+
+  <script>
+    const movies = [
+      {
+        title: "The Shawshank Redemption",
+        year: 1994,
+        genre: "Drama",
+        description: "Hope can set you free. A story of resilience and redemption.",
+        trailer: "https://www.youtube.com/watch?v=6hB3S9bIaco"
+      },
+      {
+        title: "The Godfather",
+        year: 1972,
+        genre: "Crime, Drama",
+        description: "A powerful tale of family, loyalty, and the cost of power.",
+        trailer: "https://www.youtube.com/watch?v=sY1S34973zA"
+      },
+      {
+        title: "The Dark Knight",
+        year: 2008,
+        genre: "Action, Crime, Drama",
+        description: "A gritty and brilliant exploration of chaos and justice.",
+        trailer: "https://www.youtube.com/watch?v=EXeTwQWrcwY"
+      },
+      {
+        title: "Inception",
+        year: 2010,
+        genre: "Action, Sci-Fi, Thriller",
+        description: "A mind-bending dive into dreams within dreams.",
+        trailer: "https://www.youtube.com/watch?v=YoHD9XEInc0"
+      },
+      {
+        title: "Forrest Gump",
+        year: 1994,
+        genre: "Drama, Romance",
+        description: "Life is like a box of chocolates. An unforgettable journey.",
+        trailer: "https://www.youtube.com/watch?v=bLvqoHBptjg"
+      },
+      {
+        title: "Pulp Fiction",
+        year: 1994,
+        genre: "Crime, Drama",
+        description: "Non-linear chaos, cool dialogue, and unforgettable scenes.",
+        trailer: "https://www.youtube.com/watch?v=s7EdQ4FqbhY"
+      },
+      {
+        title: "Fight Club",
+        year: 1999,
+        genre: "Drama, Thriller",
+        description: "The first rule is: don't talk about it. Too late.",
+        trailer: "https://www.youtube.com/watch?v=SUXWAEX2jlg"
+      },
+      {
+        title: "Interstellar",
+        year: 2014,
+        genre: "Adventure, Drama, Sci-Fi",
+        description: "Love, gravity, and time beyond the stars.",
+        trailer: "https://www.youtube.com/watch?v=zSWdZVtXT7E"
+      }
+    ];
+
+    function recommendMovie() {
+      const movie = movies[Math.floor(Math.random() * movies.length)];
+      const display = document.getElementById("movieDisplay");
+      display.innerHTML = `
+        <h2>${movie.title} (${movie.year})</h2>
+        <p><strong>Genre:</strong> ${movie.genre}</p>
+        <p>${movie.description}</p>
+        <p><a href="${movie.trailer}" target="_blank">▶ Watch Trailer</a></p>
+      `;
+      display.style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
